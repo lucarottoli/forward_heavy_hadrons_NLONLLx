@@ -1,0 +1,11 @@
+<initrwgt>
+<weightgroup name='SCALEVARS'>
+<weight id='11'> renscfact=1.0 facscfact=1.0  </weight>
+<weight id='12'> renscfact=1.0 facscfact=2.0  </weight>
+<weight id='21'> renscfact=2.0 facscfact=1.0  </weight>
+<weight id='22'> renscfact=2.0 facscfact=2.0  </weight>
+<weight id='1H'> renscfact=1.0 facscfact=0.5  </weight>
+<weight id='H1'> renscfact=0.5 facscfact=1.0  </weight>
+<weight id='HH'> renscfact=0.5 facscfact=0.5  </weight>
+</weightgroup>
+

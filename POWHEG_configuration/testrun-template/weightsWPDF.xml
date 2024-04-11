@@ -1,0 +1,90 @@
+<initrwgt>
+<weightgroup name='SCALEVARS'>
+<weight id='11'> renscfact=1.0 facscfact=1.0  </weight>
+<weight id='12'> renscfact=1.0 facscfact=2.0  </weight>
+<weight id='21'> renscfact=2.0 facscfact=1.0  </weight>
+<weight id='22'> renscfact=2.0 facscfact=2.0  </weight>
+<weight id='1H'> renscfact=1.0 facscfact=0.5  </weight>
+<weight id='H1'> renscfact=0.5 facscfact=1.0  </weight>
+<weight id='HH'> renscfact=0.5 facscfact=0.5  </weight>
+</weightgroup>
+
+<weightgroup name='PDFS'>
+<weight id='pdf0'> renscfact=1.0 facscfact=1.0 lhapdf=32323231 </weight>
+<weight id='pdf1'> renscfact=1.0 facscfact=1.0 lhapdf=32323232 </weight>
+<weight id='pdf2'> renscfact=1.0 facscfact=1.0 lhapdf=32323233 </weight>
+<weight id='pdf3'> renscfact=1.0 facscfact=1.0 lhapdf=32323234 </weight>
+<weight id='pdf4'> renscfact=1.0 facscfact=1.0 lhapdf=32323235 </weight>
+<weight id='pdf5'> renscfact=1.0 facscfact=1.0 lhapdf=32323236 </weight>
+<weight id='pdf6'> renscfact=1.0 facscfact=1.0 lhapdf=32323237 </weight>
+<weight id='pdf7'> renscfact=1.0 facscfact=1.0 lhapdf=32323238 </weight>
+<weight id='pdf8'> renscfact=1.0 facscfact=1.0 lhapdf=32323239 </weight>
+<weight id='pdf9'> renscfact=1.0 facscfact=1.0 lhapdf=32323240 </weight>
+<weight id='pdf10'> renscfact=1.0 facscfact=1.0 lhapdf=32323241 </weight>
+<weight id='pdf11'> renscfact=1.0 facscfact=1.0 lhapdf=32323242 </weight>
+<weight id='pdf12'> renscfact=1.0 facscfact=1.0 lhapdf=32323243 </weight>
+<weight id='pdf13'> renscfact=1.0 facscfact=1.0 lhapdf=32323244 </weight>
+<weight id='pdf14'> renscfact=1.0 facscfact=1.0 lhapdf=32323245 </weight>
+<weight id='pdf15'> renscfact=1.0 facscfact=1.0 lhapdf=32323246 </weight>
+<weight id='pdf16'> renscfact=1.0 facscfact=1.0 lhapdf=32323247 </weight>
+<weight id='pdf17'> renscfact=1.0 facscfact=1.0 lhapdf=32323248 </weight>
+<weight id='pdf18'> renscfact=1.0 facscfact=1.0 lhapdf=32323249 </weight>
+<weight id='pdf19'> renscfact=1.0 facscfact=1.0 lhapdf=32323250 </weight>
+<weight id='pdf20'> renscfact=1.0 facscfact=1.0 lhapdf=32323251 </weight>
+<weight id='pdf21'> renscfact=1.0 facscfact=1.0 lhapdf=32323252 </weight>
+<weight id='pdf22'> renscfact=1.0 facscfact=1.0 lhapdf=32323253 </weight>
+<weight id='pdf23'> renscfact=1.0 facscfact=1.0 lhapdf=32323254 </weight>
+<weight id='pdf24'> renscfact=1.0 facscfact=1.0 lhapdf=32323255 </weight>
+<weight id='pdf25'> renscfact=1.0 facscfact=1.0 lhapdf=32323256 </weight>
+<weight id='pdf26'> renscfact=1.0 facscfact=1.0 lhapdf=32323257 </weight>
+<weight id='pdf27'> renscfact=1.0 facscfact=1.0 lhapdf=32323258 </weight>
+<weight id='pdf28'> renscfact=1.0 facscfact=1.0 lhapdf=32323259 </weight>
+<weight id='pdf29'> renscfact=1.0 facscfact=1.0 lhapdf=32323260 </weight>
+<weight id='pdf30'> renscfact=1.0 facscfact=1.0 lhapdf=32323261 </weight>
+<weight id='pdf31'> renscfact=1.0 facscfact=1.0 lhapdf=32323262 </weight>
+<weight id='pdf32'> renscfact=1.0 facscfact=1.0 lhapdf=32323263 </weight>
+<weight id='pdf33'> renscfact=1.0 facscfact=1.0 lhapdf=32323264 </weight>
+<weight id='pdf34'> renscfact=1.0 facscfact=1.0 lhapdf=32323265 </weight>
+<weight id='pdf35'> renscfact=1.0 facscfact=1.0 lhapdf=32323266 </weight>
+<weight id='pdf36'> renscfact=1.0 facscfact=1.0 lhapdf=32323267 </weight>
+<weight id='pdf37'> renscfact=1.0 facscfact=1.0 lhapdf=32323268 </weight>
+<weight id='pdf38'> renscfact=1.0 facscfact=1.0 lhapdf=32323269 </weight>
+<weight id='pdf39'> renscfact=1.0 facscfact=1.0 lhapdf=32323270 </weight>
+<weight id='pdf40'> renscfact=1.0 facscfact=1.0 lhapdf=32323271 </weight>
+<weight id='pdf41'> renscfact=1.0 facscfact=1.0 lhapdf=32323272 </weight>
+<weight id='pdf42'> renscfact=1.0 facscfact=1.0 lhapdf=32323273 </weight>
+<weight id='pdf43'> renscfact=1.0 facscfact=1.0 lhapdf=32323274 </weight>
+<weight id='pdf44'> renscfact=1.0 facscfact=1.0 lhapdf=32323275 </weight>
+<weight id='pdf45'> renscfact=1.0 facscfact=1.0 lhapdf=32323276 </weight>
+<weight id='pdf46'> renscfact=1.0 facscfact=1.0 lhapdf=32323277 </weight>
+<weight id='pdf47'> renscfact=1.0 facscfact=1.0 lhapdf=32323278 </weight>
+<weight id='pdf48'> renscfact=1.0 facscfact=1.0 lhapdf=32323279 </weight>
+<weight id='pdf49'> renscfact=1.0 facscfact=1.0 lhapdf=32323280 </weight>
+<weight id='pdf50'> renscfact=1.0 facscfact=1.0 lhapdf=32323281 </weight>
+<weight id='pdf51'> renscfact=1.0 facscfact=1.0 lhapdf=32323282 </weight>
+<weight id='pdf52'> renscfact=1.0 facscfact=1.0 lhapdf=32323283 </weight>
+<weight id='pdf53'> renscfact=1.0 facscfact=1.0 lhapdf=32323284 </weight>
+<weight id='pdf54'> renscfact=1.0 facscfact=1.0 lhapdf=32323285 </weight>
+<weight id='pdf55'> renscfact=1.0 facscfact=1.0 lhapdf=32323286 </weight>
+<weight id='pdf56'> renscfact=1.0 facscfact=1.0 lhapdf=32323287 </weight>
+<weight id='pdf57'> renscfact=1.0 facscfact=1.0 lhapdf=32323288 </weight>
+<weight id='pdf58'> renscfact=1.0 facscfact=1.0 lhapdf=32323289 </weight>
+<weight id='pdf59'> renscfact=1.0 facscfact=1.0 lhapdf=32323290 </weight>
+<weight id='pdf60'> renscfact=1.0 facscfact=1.0 lhapdf=32323291 </weight>
+<weight id='pdf61'> renscfact=1.0 facscfact=1.0 lhapdf=32323292 </weight>
+<weight id='pdf62'> renscfact=1.0 facscfact=1.0 lhapdf=32323293 </weight>
+<weight id='pdf63'> renscfact=1.0 facscfact=1.0 lhapdf=32323294 </weight>
+<weight id='pdf64'> renscfact=1.0 facscfact=1.0 lhapdf=32323295 </weight>
+<weight id='pdf65'> renscfact=1.0 facscfact=1.0 lhapdf=32323296 </weight>
+<weight id='pdf66'> renscfact=1.0 facscfact=1.0 lhapdf=32323297 </weight>
+<weight id='pdf67'> renscfact=1.0 facscfact=1.0 lhapdf=32323298 </weight>
+<weight id='pdf68'> renscfact=1.0 facscfact=1.0 lhapdf=32323299 </weight>
+<weight id='pdf69'> renscfact=1.0 facscfact=1.0 lhapdf=32323300 </weight>
+<weight id='pdf70'> renscfact=1.0 facscfact=1.0 lhapdf=32323301 </weight>
+<weight id='pdf71'> renscfact=1.0 facscfact=1.0 lhapdf=32323302 </weight>
+<weight id='pdf72'> renscfact=1.0 facscfact=1.0 lhapdf=32323303 </weight>
+<weight id='pdf73'> renscfact=1.0 facscfact=1.0 lhapdf=32323304 </weight>
+<weight id='pdf74'> renscfact=1.0 facscfact=1.0 lhapdf=32323305 </weight>
+<weight id='pdf75'> renscfact=1.0 facscfact=1.0 lhapdf=32323306 </weight>
+</weightgroup>
+</initrwgt>

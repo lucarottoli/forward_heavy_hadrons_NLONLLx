@@ -1,0 +1,147 @@
+Template folders for the generation of POWHEG events for charm and
+bottom production in the forward region as in [1].
+
+Directory tree:
+
+---- hvq-mod       ---- Makefile          : 
+                   ---- pwhg_analysis-LHB-charm.f   : default analysis to reproduce D mesons measurements of LHCb [2]
+                   ---- pwhg_analysis-LHB-bottom.f  : default analysis to reproduce B mesons measurements of LHCb [3]
+                   ---- main-PYTHIA8.f    : interface to PYTHIA8 and the POWHEG analysis
+                   ---- pythia82F77.cc    : fortran wrapper 
+         
+---- scripts       ---- run-parallel.sh   : master script to run powheg in parallel
+
+To reproduce comparisons with LHCb data in [1]
+
+---- testrun-template   ---- powheg.input-save-LHC13-ccbar     : input card to reproduce comparisons with LHCb data at 13 TeV for charm   [2]
+     			---- powheg.input-save-LHC13-bbbar     : input card to reproduce comparisons with LHCb data at 13 TeV for bottom  [3]
+			---- powheg.input-save-LHC13p6-ccbar   : input card for generating events at 13.6 TeV for charm  
+			---- powheg.input-save-LHC13p6-bbbar   : input card for generating events at 13.6 TeV for bottom
+        		---- pwgseeds.dat                      : list of seeds for parallel run 
+		        ---- weights.xml                       : weights for 7-point scale variation
+		        ---- weightsWPDF.xml                   : weights for 7-point scale and PDF variations
+
+PRE-REQUISITIES
+
+1) LHAPDF:
+      - lhapdf-config command must be available in your shell
+      - the PDF set are located in
+      	   $> lhapdf-config --datadir
+   	we will refer to this path at LHAPDF_DATA_DIR 
+
+2) PDF set which include LHCb datapoints and small-x resummation at NLL: NNPDF31sx_nlonllx_as_0118_LHCb.tgz [4]
+      - the set is available at https://data.nnpdf.science/BGR18/
+      - untar NNPDF31sx_nlonllx_as_0118_LHCb.tgz inside LHAPDF_DATA_DIR
+      - append to the pdfsets.index file inside LHAPDF_DATA_DIR the line
+        32323231 NNPDF31sx_nlonllx_as_0118_LHCb 1
+	(for example $> echo "32323231 NNPDF31sx_nlonllx_as_0118_LHCb 1" >> pdfsets.index)
+
+   The number 32323231 is arbitrary, this choice matches what is used
+   in the template run.  If you decide to change it (choosing another
+   available option according to your pdfsets.index) remember to modfy
+   the template powheg.input-save accordingly.
+   
+3) Compilation of hvq POWHEG generator (SVN is required for checking
+   out the hvq POWHEG generator [5])
+
+4) Compilation of hvq POWHEG generator,
+
+   a) checkout latest version of POWHEG-BOX-V2 [6] and hvq generator [5]
+      (follow instructions from https://powhegbox.mib.infn.it):
+
+      assume WORK is your working directory 
+
+       $> cd $WORK
+       $> svn checkout --username anonymous --password anonymous svn://powhegbox.mib.infn.it/trunk/POWHEG-BOX-V2
+       $> cd POWHEG-BOX-V2
+       $> svn co --username anonymous --password anonymous svn://powhegbox.mib.infn.it/trunk/User-Processes-V2/hvq
+
+      After this, you have the following directory tree 
+
+      $WORK/POWHEG-BOX-V2
+      $WORK/POWHEG-BOX-V2/hvq 
+       
+   b) compilation of hvq with LHAPDF interface: We recommend to copy
+      the files inside hvq-mod into $WORK/POWHEG-BOX-V2/hvq folder
+      and, then, compile the main target
+
+       $> cd $WORK/POWHEG-BOX-V2/hvq
+       $> make -j
+       
+      This should compile without errors on gcc > 7 on a LINUX
+      machine.  By default, the analysis for D mesons is selected in
+      the Makefile. Edit the Makefile if you want the bottom
+      analysis. The choice of the analysis does not affect the
+      generation of the events.
+      
+      Optional: compile the interface to the analysis of the LHE event files and to PYTHIA8
+      $> make -j lhef_analysis
+      $> make -j main-PYTHIA82-lhef
+      
+RUN a template file
+
+1) copy template run folder testrun-template into $WORK/POWHEG-BOX-V2/hvq
+   and rename it at your will, e.g. testrun-LHC13-ccbar
+   Choose one of the input card, renaming it as simply powheg.input-save
+   Main parameters:
+   - ebeam 1 : energy of beam 1 in GeV
+   - ebeam 2 : energy of beam 2 in GeV
+   - qmass : mass of the heavy quark
+   - numevents : number of events to generate
+
+   The run is set up for a parallel run on a machine with NCORES
+   according to the standard single job parallelisation implemented in
+   POWHEG-BOX. The master script for submitting the job is inside
+   the scripts folder: scripts/run-parallel.sh
+   
+   The standard usage is
+    $> cd $WORK/POWHEG-BOX-V2/hvq/testrun-LHC13-ccbar
+    $> chmod +x run-parallel.sh
+    $> nohup ./run-parallel.sh &
+   
+   Parameters for the parallelisation are hard coded into the
+   run-parallel.sh master script. Edit it assigning reasonable values,
+   according to your system and desired precision and timing, to the
+   variable
+
+   ncores =
+   nprocesses = 
+
+   at the beginning of the run-parallel.sh script. The first sets the
+   number of cores to use, the second the total number of jobs. If the
+   number of requested job is greater than the number of cores, the
+   script will fill the selected number of cores and wait for their
+   completion before continuing submitting the remaining jobs.
+
+   WEIGHTS: to perform variation of parameters (for example, for scale
+   or pdf uncertainties), a reweighting mechanism is implemented in
+   the POWHEG-BOX. This is turned on by default in the template
+   powheg.input-save input card:
+
+   storeinfo_rwgt      1
+
+   Set it to 0 or comment it with a # at the beginning if you want to
+   switch it off.  The weights are defined into the weights.xml
+   file, as specified by the line in the powheg.input-save 
+
+   rwl_file 'weights.xml'
+
+   If you want to store also weights associated to PDF uncertainties,
+   use the weightsWPDF.xml instead.
+
+   All the weights, will appear in the LHE event file, at the end of
+   each event.
+
+2) optional:
+   use the scripts scripts/runlhe.sh and scripts/runpy8.sh to produce top file histograms
+   according to the selected analysis file. 
+   
+
+   References:
+   [1] Eur.Phys.J.C 84 (2024) 4, 363 (arXiv:2309.12793 [hep-ph])
+   [2] JHEP 03 (2016) 159 (arXiv:1510.01707 [hep-ex])
+   [3] JHEP 12 (2017) 026 (arXiv:1710.04921 [hep-ex])
+   [4] JHEP 01 (2019) 217 (arXiv:1808.02034 [hep-ph]), Eur. Phys. J. C 78 (2018) no. 4, 321 (arXiv:1710.05935 [hep-ph])
+   [5] JHEP 09 (2007) 126 (arXiv:0707.3088 [hep-ph])
+   [6] JHEP 06 (2010) 043 (arXiv:1002.2581 [hep-ph])
+   

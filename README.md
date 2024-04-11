@@ -14,7 +14,7 @@
 
 This repository contains data files associated to the paper 'Predictions for Neutrinos and New Physics from Forward Heavy Hadron Production at the LHC'.
 
-- In the directory `POWHEG_configuration` we include ... 
+- In the directory `POWHEG_configuration` we include information about the POWHEG setup used to produce the predictions
 
 - In the directory `LHE_files` we include parton-level LHE files generated with these setups for both charm and bottom production at 13.6 TeV LHC. 
 
